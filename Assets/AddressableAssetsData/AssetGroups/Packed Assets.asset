@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Packed Assets
+  m_EditorClassIdentifier: 
+  m_GroupName: Packed Assets
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 348d64de3ef9233429efae70c9252b98
+  m_SerializeEntries:
+  - m_GUID: 33fc75ca38afc4947ae9e21afe96f101
+    m_Address: DyncDll.pdb
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 46d8a5d81d1b07b4891ee23af9631f46
+    m_Address: TestCube
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cube2
+  - m_GUID: 6d934b1edc88b5642bf03e86288247b2
+    m_Address: AddressTest
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a9b179fedc5913841b5e9acd7f14a4e0
+    m_Address: TestCube1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cube1
+  - m_GUID: d5d32417af173d645b171dd94496ae67
+    m_Address: DyncDll.dll
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: d74d5e7c21b87d744a706fc5b1600f3f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 55ca31976dd88a8429bc38c7866fe4cb, type: 2}
+    - {fileID: 11400000, guid: 775b13f874a34d740b0b50d10dea510a, type: 2}
