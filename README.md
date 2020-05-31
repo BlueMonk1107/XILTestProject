@@ -1,0 +1,2 @@
+# XILTestProject
+使用Addressables及XIL（ILRuntime热更框架）实现热更的测试工程
