@@ -21,20 +21,6 @@ MonoBehaviour:
     m_Address: DyncDll.pdb
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 46d8a5d81d1b07b4891ee23af9631f46
-    m_Address: TestCube
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Cube2
-  - m_GUID: 6d934b1edc88b5642bf03e86288247b2
-    m_Address: AddressTest
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: a9b179fedc5913841b5e9acd7f14a4e0
-    m_Address: TestCube1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Cube1
   - m_GUID: d5d32417af173d645b171dd94496ae67
     m_Address: DyncDll.dll
     m_ReadOnly: 0

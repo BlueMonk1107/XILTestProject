@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Consts;
 using UnityEngine;
 
 #if USE_HOT
@@ -356,8 +357,8 @@ namespace wxb
                 }
             }
 #endif
-            refType = new RefType("hot.hotApp");
-            refType.TryInvokeMethod("Init");
+//            refType = new RefType("hot.hotApp");
+//            refType.TryInvokeMethod("Init");
 
             AllTypes = new List<IType>();
             foreach (var ator in appdomain.LoadedTypes)
@@ -407,19 +408,23 @@ namespace wxb
             ILRuntime.Runtime.Generated.CLRBindings.Initialize(appdomain);
 #endif
             ILRuntime.Runtime.Generated.UnityEngine_Debug_Binding.Register(appdomain);
+            
+#if UNITY_EDITOR
+            ResLoad.Set(new EditorResLoad());
+#endif
+            
             try
             {
-                IResLoad test = new TestResLoad();
-                var dlldata = test.GetStream("HotData/DyncDll.dll.bytes");
+#if TEST_MODEL
+                var dlldata = ResLoad.GetStream(Paths.HOT_DLL_PATH);
                 DllStream = CopyStream(dlldata);
-                
-                //DllStream = CopyStream(new MemoryStream(dll.bytes));
-                
+#elif BUILD_MODEL
+                DllStream = CopyStream(new MemoryStream(dll.bytes));
+#endif
                 if (DllStream != null)
                 {
 #if USE_PDB
-                    IResLoad pdbtest = new TestResLoad();
-                    var pdbdata = pdbtest.GetStream("HotData/DyncDll.pdb.bytes");
+                    var pdbdata = ResLoad.GetStream(Paths.HOT_PDB_PATH);
                     SymbolStream = CopyStream(pdbdata);
                     appdomain.LoadAssembly(DllStream, SymbolStream, new ILRuntime.Mono.Cecil.Pdb.PdbReaderProvider());
 #elif USE_MDB

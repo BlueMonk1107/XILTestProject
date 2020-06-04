@@ -6,6 +6,7 @@ using System.Linq;
 using System.IO;
 using MonoXIL.Cecil;
 using MonoXIL.Cecil.Cil;
+using UnityEngine;
 
 namespace wxb.Editor
 {
@@ -182,20 +183,18 @@ namespace wxb.Editor
             }
             return false;
         }
-
-        [UnityEditor.Callbacks.PostProcessScene]
-        [UnityEditor.MenuItem("XIL/Hotfix Inject In Editor", false, 3)]
+        
         public static void Inject()
         {
             if (UnityEngine.Application.isPlaying)
                 return;
-
+            
             if (UnityEditor.EditorApplication.isCompiling)
             {
                 UnityEngine.Debug.LogError("正在编译中，请编译完之后再点击!");
                 return;
             }
-
+            
             try
             {
                 System.Func<HashSet<string>> func = () => { return new HashSet<string>(GenAutoExport.FixMarkIL()); };

@@ -1,4 +1,6 @@
-﻿namespace wxb
+﻿using Consts;
+
+namespace wxb
 {
     using System.Reflection;
     using System.Collections.Generic;
@@ -322,7 +324,7 @@
             HashSet<System.Type> types = new HashSet<System.Type>(); 
             var assemblies = System.AppDomain.CurrentDomain.GetAssemblies();
 #if USE_HOT
-            string dll = ResourcesPath.dataPath + "/../Data/DyncDll.dll";
+            string dll = Paths.HOT_DLL_PATH;
             if (System.IO.File.Exists(dll))
             {
                 Assembly assembly = Assembly.LoadFile(dll);

@@ -10,21 +10,19 @@ namespace wxb
     }
 
 #if UNITY_EDITOR
-    // ±à¼­Æ÷ÏÂµÄ×ÊÔ´¼ÓÔØ
+    // ç¼–è¾‘å™¨ä¸‹çš„èµ„æºåŠ è½½
     class EditorResLoad : IResLoad
     {
         public EditorResLoad()
         {
-            RootPath = ResourcesPath.dataPath + "/../";
         }
-
-        string RootPath { get; set; }
 
         Stream IResLoad.GetStream(string path)
         {
-            string filepath = RootPath + path;
+            string filepath = path;
             if (!File.Exists(filepath))
             {
+                Debug.LogError("æœªæ‰¾åˆ°å¯¹åº”æ–‡ä»¶ï¼Œè·¯å¾„ï¼š"+path);
                 return null;
             }
 
@@ -41,39 +39,6 @@ namespace wxb
         }
     }
 #endif
-    
-    // ±à¼­Æ÷ÏÂµÄ×ÊÔ´¼ÓÔØ
-    class TestResLoad : IResLoad
-    {
-        public TestResLoad()
-        {
-            RootPath = ResourcesPath.dataPath;
-        }
-
-        string RootPath { get; set; }
-
-        Stream IResLoad.GetStream(string path)
-        {
-            string filepath = RootPath +"/"+ path;
-            if (!File.Exists(filepath))
-            {
-                Debug.LogError("Â·¾¶²»´æÔÚ£¬Â·¾¶£º"+filepath);
-                return null;
-            }
-
-            try
-            {
-                return new MemoryStream(File.ReadAllBytes(filepath));
-            }
-            catch (System.Exception ex)
-            {
-                wxb.L.LogException(ex);
-            }
-
-            return null;
-        }
-    }
-
 
     public static class ResLoad
     {
@@ -86,6 +51,11 @@ namespace wxb
 
         public static Stream GetStream(string path)
         {
+            if (current == null)
+            {
+                Debug.LogError("å½“å‰Loadå¯¹è±¡ä¸ºç©ºï¼Œè¯·å…ˆè°ƒç”¨Set()");
+                return null;
+            }
             return current.GetStream(path);
         }
     }
