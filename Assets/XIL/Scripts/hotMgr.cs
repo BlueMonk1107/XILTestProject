@@ -427,6 +427,8 @@ namespace wxb
                     var pdbdata = ResLoad.GetStream(Paths.HOT_PDB_PATH);
                     SymbolStream = CopyStream(pdbdata);
                     appdomain.LoadAssembly(DllStream, SymbolStream, new ILRuntime.Mono.Cecil.Pdb.PdbReaderProvider());
+                    //启动调试服务器
+                    appdomain.DebugService.StartDebugService(56000);
 #elif USE_MDB
                     SymbolStream = CopyStream(ResLoad.GetStream("Data/DyncDll.mdb"));
                     appdomain.LoadAssembly(DllStream, SymbolStream, new ILRuntime.Mono.Cecil.Mdb.MdbReaderProvider());

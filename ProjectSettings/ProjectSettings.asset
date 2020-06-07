@@ -634,7 +634,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
-    1: USE_HOT;HOT_DEBUG;USE_PDB
+    1: USE_HOT;HOT_DEBUG;USE_PDB;TEST_MODEL
   platformArchitecture: {}
   scriptingBackend:
     Android: 1
